@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Verden Corona Daten Alpha</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+      <center>
+        
+        <div class="container">
+      <h2>COVID-19 Fälle im Landkreis <span id="name"></span> 
+                <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Info!</strong> This Website is under Development
+</div>
+       <br>
+      <div class="board">
+        <div class="card a"><i class="fa fa-tachometer"></i><h5>Alle Fälle im Landkreis</h5><span id="cases"></span></div>
+        
+
+        <div class="card d"><i class="fa fa-times"></i><h5>Alle Todesfälle</h5><span id="deaths"></span></div>
+        
+        <div class="card r"><i class="fa fa-check-square-o"></i><h5>Genesene Fälle im Landkreis</h5><span id="recovered"></span></div>
+        
+        <div class="card t"><i class="fa fa-eye"></i><h5>7 Tage Inzidenz</h5><span id="weekIncidence"></span></div>
+               
+      </div>    
+    </div>    
+    </center>
+  </body>        
+</html>
+  
+  <style>
+.alert {
+  padding: 10px;
+  border-radius: 24px;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 39px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+  
+<script type="text/javascript">
+  fetch('https://api.corona-zahlen.org/districts/03361')
+.then((response) => {
+  return response.json();
+})
+.then((json) => {
+  console.log(json.data["03361"].cases);
+  document.getElementById("cases").innerHTML = json.data["03361"].cases.toLocaleString();
+    
+         document.getElementById("name").innerHTML = json.data["03361"].name.toLocaleString();
+    
+    document.getElementById("deaths").innerHTML = json.data["03361"].deaths.toLocaleString();
+    
+        document.getElementById("recovered").innerHTML = json.data["03361"].recovered.toLocaleString();    
+    
+     document.getElementById("weekIncidence").innerHTML = json.data["03361"].weekIncidence.toLocaleString();
+});
+</script>
+  
