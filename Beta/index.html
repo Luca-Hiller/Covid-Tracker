@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Alpha 2.o Corona</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>TEST Project</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
+
+</head>
+<body>
+  <body style="background-color:#2a2b3d;">
+
+<!-- partial:index.partial.html -->
+<div class="p-4">
+    <div class="welcome">
+      <div class="content rounded-3 p-3">
+        <h1 id="name" class="fs-3">Corona Tracker Verden</h1>
+        <p class="mb-0">Diese Webseite zeigt die Aktuellen Corona Daten an welche vom RKI übermittelt werden</p>
+      </div>
+    </div>
+
+  
+
+
+
+    <section class="statis mt-4 text-center">
+      <br>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <div class="box bg-primary p-3">
+            <i class="uil-eye"></i>
+            <h3 id="weekIncidence">API DATA</h3>
+            <p class="lead">Inzidenz</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <div class="box bg-danger p-3">
+            <i class="uil-user"></i>
+            <h3 id="deaths">API DATA</h3>
+            <p class="lead">Alle Todesfälle</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+          <div class="box bg-warning p-3">
+            <i class="uil-shopping-cart"></i>
+            <h3 id="cases">API DATA</h3>
+            <p class="lead">Alle Fälle</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="box bg-success p-3">
+            <i class="uil-feedback"></i>
+            <h3 id="recovered">API DATA</h3>
+            <p class="lead">Genesene Fälle</p>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="Trafic mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+ <!-- <h4>Admins:</h4> -->
+            <div class="Trafic d-flex align-items-center rounded-2 p-3 mb-4">
+              <div class="img">
+                <img class="img-fluid rounded-pill"
+                     width="75" height="75"
+                     src="https://www.fomei.com/ew/ew_images/image?EwImage=cf93f7f4-4421-456c-b7a7-c93d9c5d1a28&Filter=0d61d30e-330c-4d43-a308-15fc9f579446"
+                     alt="Trafic">
+              </div>
+              <div class="ms-3">
+                <h3 class="fs-5 mb-1">Corona-Tracker</h3>
+                <p class="mb-0">Diese Anzeige zeigt ob unser Service Funktioniert</p>
+              </div>
+            </div>
+  </div>
+</section>
+        
+        <script type="text/javascript">
+  fetch('https://api.corona-zahlen.org/districts/03361')
+.then((response) => {
+  return response.json();
+})
+.then((json) => {
+  console.log(json.data["03361"].cases);
+  document.getElementById("cases").innerHTML = json.data["03361"].cases.toLocaleString();
+    
+         document.getElementById("name").innerHTML = json.data["03361"].name.toLocaleString();
+    
+    document.getElementById("deaths").innerHTML = json.data["03361"].deaths.toLocaleString();
+    
+        document.getElementById("recovered").innerHTML = json.data["03361"].recovered.toLocaleString();    
+    
+     document.getElementById("weekIncidence").innerHTML = json.data["03361"].weekIncidence.toLocaleString();
+});
+</script>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.jshttps://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
